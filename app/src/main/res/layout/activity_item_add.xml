@@ -1,0 +1,136 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:background="#e2a600"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ItemAddActivity">
+
+
+
+    <EditText
+        android:id="@+id/item_add_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:hint="Тренировка" />
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/button_add_data"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D5A10F"
+            android:textStyle="bold"
+            android:paddingHorizontal="20dp"
+            style="?android:spinnerStyle"
+
+            android:text="Дата" />
+
+        <Button
+            android:id="@+id/button_add_time"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D5A10F"
+            android:textStyle="bold"
+            style="?android:spinnerStyle"
+            android:paddingHorizontal="20dp"
+            android:text="Время" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:text="Кол-во" />
+
+        <EditText
+            android:id="@+id/item_add_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:inputType="number"
+            android:hint="0" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:text="Итого:" />
+
+        <EditText
+            android:id="@+id/item_add_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textStyle="bold"
+            android:inputType="number"
+            android:textSize="17sp"
+            android:hint="0" />
+
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/item_add_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:textSize="15sp"
+        android:hint="Описание" />
+
+
+    <ImageButton
+        android:id="@+id/photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@android:color/transparent"
+        android:onClick="openGallery"
+        android:scaleType="centerInside"
+        app:srcCompat="@color/cardview_shadow_end_color"
+        tools:srcCompat="@drawable/palm" />
+
+
+
+    <Button
+        android:id="@+id/button_add"
+        android:layout_marginTop="50dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#D5A10F"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:text="Сохранить" />
+
+
+
+</LinearLayout>

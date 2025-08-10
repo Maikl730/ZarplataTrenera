@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:background="#e2a600"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ItemsActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/main_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="105dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Тренировки"
+        android:textColor="#fdfdfd"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_marginLeft="30dp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="Выйти"
+        android:textSize="10dp"
+        android:backgroundTint="#201E28"
+        android:layout_gravity="right"
+        android:onClick="exitFromUser"
+        android:gravity="right"/>
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_data_sort1"
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D5A10F"
+            android:textStyle="bold"
+            android:paddingHorizontal="20dp"
+            style="?android:spinnerStyle"
+            android:layout_weight="1"
+            android:text="Дата 1"/>
+
+        <Button
+            android:id="@+id/button_data_sort2"
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D5A10F"
+            android:textStyle="bold"
+            android:paddingHorizontal="20dp"
+            style="?android:spinnerStyle"
+            android:layout_weight="1"
+
+            android:text="Дата 2"/>
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/items_list"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="520dp" />
+
+
+    <Button
+        android:id="@+id/button_toAdd"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="0dp"
+        android:backgroundTint="#201E28"
+        android:onClick="toAddAct"
+        android:paddingHorizontal="20dp"
+        android:text="+" />
+
+
+    <TextView
+        android:id="@+id/main_sum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:gravity="left"
+        android:layout_marginTop="-40dp"
+        android:layout_marginLeft="15dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Итого:"
+        android:textColor="#fdfdfd"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+
+
+</LinearLayout>
