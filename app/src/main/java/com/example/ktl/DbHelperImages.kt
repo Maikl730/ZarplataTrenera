@@ -16,7 +16,7 @@ class DbHelperImages(val context: Context,val factory: SQLiteDatabase.CursorFact
 
     override fun onCreate(db: SQLiteDatabase?) {
         val query = "CREATE TABLE images (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "image64 BLOB, idtrain INTEGER,  user INTEGER)"
+                "image64 TEXT, idtrain INTEGER,  user INTEGER)"
         db!!.execSQL(query)
     }
 
@@ -72,7 +72,7 @@ class DbHelperImages(val context: Context,val factory: SQLiteDatabase.CursorFact
     fun getImage(idtrain:Int,user:Int):String{
         val db = this.readableDatabase
 
-        val cursor: Cursor =db.rawQuery("SELECT * FROM images WHERE user = '$user' " +
+        val cursor: Cursor =db.rawQuery("SELECT * FROM images WHERE user = '$user'" +
                 "AND idtrain =  '$idtrain'  ",null)
 
         if (cursor.moveToFirst()) {
@@ -107,11 +107,17 @@ class DbHelperImages(val context: Context,val factory: SQLiteDatabase.CursorFact
         val db = this.readableDatabase
 
         if(isExist(idtrain,userId)) {
-            db.rawQuery(
+           /* db.rawQuery(
                 "UPDATE images SET image64 = '$uriImage' WHERE id = '$idImage' ", null
-            )
+            )*/
+
+            val query = "UPDATE images SET image64 = '$uriImage' WHERE id = '$idImage' "
+           db!!.execSQL(query)
+
+            println("ЗАМЕНИЛ ФОТО !!! ID image = $idImage uri = $uriImage")
         }else{
             addImage(uriImage,idtrain,userId)
+            println("НЕ СМОГ ЗАМЕНИТЬ. ДОБАВИЛ НОВОЕ ФОТО !!!")
         }
     }
 
@@ -133,4 +139,13 @@ class DbHelperImages(val context: Context,val factory: SQLiteDatabase.CursorFact
             return 0
         }
     }
+
+    fun deleteImage(idtrain: Int,user: Int) {
+        val db = this.writableDatabase
+
+        if (isExist(idtrain, user)) {
+            db!!.execSQL("DELETE FROM images WHERE user = '$user' AND idtrain =  '$idtrain' ")
+        }
+    }
+
 }

@@ -76,7 +76,7 @@ class ItemsActivity : AppCompatActivity() {
                 println(data1)
                 items = db.getItem(data1,data2,id)
                 itemsList.adapter = ItemsAdapter(items,this)
-                sumShow.text = "Итого: " + db.getSum("data1","data2",id).toString() + " руб."
+                sumShow.text = "Итого: " + db.getSum(data1,data2,id).toString() + " руб."
                 itemsList.refreshDrawableState()
             }else {
                 dataButtonSet2.setText("" + dayOfMonth + ". " + monthFormat(month1+1) + ". " + year)
@@ -84,7 +84,7 @@ class ItemsActivity : AppCompatActivity() {
                 println(data2)
                 items = db.getItem(data1,data2,id)
                 itemsList.adapter = ItemsAdapter(items,this)
-                sumShow.text = "Итого: " + db.getSum("data1","data2",id).toString() + " руб."
+                sumShow.text = "Итого: " + db.getSum(data1,data2,id).toString() + " руб."
                 itemsList.refreshDrawableState()
 
             }
@@ -100,7 +100,7 @@ class ItemsActivity : AppCompatActivity() {
             buttonChange=2
         }
 
-
+//github string helloo testtttt !!!!
 
         itemsList.layoutManager = LinearLayoutManager(this)
         itemsList.adapter = ItemsAdapter(items,this)

@@ -36,6 +36,8 @@ class ItemActivity : AppCompatActivity() {
             insets
         }
 
+        selectedImageUri ="".toUri()
+        var isImage:Boolean = false
         val button_delete: Button = findViewById(R.id.button_delete_a)
         val button_red: Button = findViewById(R.id.button_red_a)
         val imageButton: ImageButton = findViewById(R.id.photo_item)
@@ -79,11 +81,14 @@ class ItemActivity : AppCompatActivity() {
             var newImageUri: String = db.getImage(id, userId)
             imageButton.setImageURI(newImageUri.toUri())
 
+            println("ADDED ID Image = ${db.getImageId(id,userId)}")
             println("IMAGE URI IS " + newImageUri + " !!!!!!!!!!!!!!!!!!")
             imageButton.scaleY= 2F
             imageButton.scaleY= 2f
+            isImage = true
         }else{
 
+            isImage = false
             println("NO PICTURES!!!")
         }
 
@@ -121,8 +126,11 @@ class ItemActivity : AppCompatActivity() {
 
         button_delete.setOnClickListener {
             val db = DbHelperTrain(this,null)
+            val dbImage = DbHelperImages(this,null)
+
 
             db.deleteTrain(id)
+            dbImage.deleteImage(id,userId)
 
             val intent = Intent(this,ItemsActivity::class.java)
             startActivity(intent)
@@ -168,8 +176,14 @@ class ItemActivity : AppCompatActivity() {
                         )
 
                         val db = DbHelperTrain(this, null)
+                        val dbImages = DbHelperImages(this,null)
 
                         db.rewriteItem(item, id)
+
+                       // if(isImage==true) {
+                         //   changePhoto()
+                            //dbImages.deleteImage(id,userId)
+                        //}
                         changePhoto()
 
 
@@ -289,12 +303,14 @@ class ItemActivity : AppCompatActivity() {
 
 
     fun changePhoto(){
-        if(selectedImageUri!=null) {
+        if(selectedImageUri.toString()!="") {
             val sP = getSharedPreferences("UserId", MODE_PRIVATE)
             val userId = sP.getInt("UserId", 0)
             val id: Int = intent.getIntExtra("itemId", 0)
 
             val db = DbHelperImages(this, null)
+
+            println("ОТДАЛ ФОТО НА ЗАМЕНУ!!!  ID train = $id, User id = $userId   ${selectedImageUri.toString()}")
                 db.changeImage(db.getImageId(id, userId), selectedImageUri.toString(), id, userId)
 
         }
