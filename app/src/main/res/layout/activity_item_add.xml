@@ -3,12 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:orientation="vertical"
-    android:background="#e2a600"
+    android:background="@color/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ItemAddActivity">
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="@drawable/round"
+    android:backgroundTint="@color/main">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <EditText
         android:id="@+id/item_add_name"
@@ -63,7 +72,7 @@
 
         <EditText
             android:id="@+id/item_add_count"
-            android:layout_width="match_parent"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"
@@ -83,7 +92,7 @@
 
         <EditText
             android:id="@+id/item_add_price"
-            android:layout_width="match_parent"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"
@@ -105,7 +114,9 @@
         android:textSize="15sp"
         android:hint="Описание" />
 
+    </LinearLayout>
 
+</RelativeLayout>
     <ImageButton
         android:id="@+id/photo"
         android:layout_width="100dp"
@@ -126,7 +137,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:backgroundTint="#D5A10F"
+        android:backgroundTint="@color/main"
         android:gravity="center"
         android:paddingHorizontal="20dp"
         android:text="Сохранить" />

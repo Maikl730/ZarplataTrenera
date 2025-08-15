@@ -1,116 +1,148 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:orientation="vertical"
-    android:background="#e2a600"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".ItemsActivity">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_gravity="center">
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="330dp"
+            android:backgroundTint="@color/black"
+            android:text="Выйти"
+            android:textSize="17dp" />
 
-    <TextView
-        android:id="@+id/main_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="105dp"
-        android:fontFamily="@font/inter_bold"
-        android:text="Тренировки"
-        android:textColor="#fdfdfd"
-        android:textSize="25dp"
-        android:textStyle="bold" />
-
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_marginLeft="30dp"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:text="Выйти"
-        android:textSize="10dp"
-        android:backgroundTint="#201E28"
-        android:layout_gravity="right"
-        android:onClick="exitFromUser"
-        android:gravity="right"/>
-
-</LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/stars">
+        </RelativeLayout>
 
         <Button
-            android:id="@+id/button_data_sort1"
-            android:layout_width="185dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#D5A10F"
-            android:textStyle="bold"
-            android:paddingHorizontal="20dp"
-            style="?android:spinnerStyle"
-            android:layout_weight="1"
-            android:text="Дата 1"/>
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="290dp"
+            android:backgroundTint="@color/black"
+            android:onClick="exitFromUser"
+            android:text="Выйти"
+            android:textSize="10dp" />
+
+        <RelativeLayout
+            android:layout_width="380dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center_horizontal"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/round"
+            android:backgroundTint="#FFFFFF"
+            >
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/button_data_sort1"
+                        android:layout_width="140dp"
+                        android:layout_height="18dp"
+                        android:gravity="center_horizontal"
+                        android:text="C 30 Июня"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:id="@+id/button_data_sort2"
+                        android:layout_width="150dp"
+                        android:layout_height="18dp"
+                        android:gravity="center_horizontal"
+                        android:text="До 15 Июля"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/main_sum"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:text="10000 руб."
+                    android:gravity="center"
+                    android:textSize="27dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_bold"
+                    />
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/data_week"
+                        android:layout_width="60dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:text="Неделя"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:id="@+id/data_2week"
+                        android:layout_width="75dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:text="2 Недели"
+                        android:textSize="16dp"
+                        android:layout_marginHorizontal="50dp"
+                        android:textColor="@color/main"
+                        />
+                    <TextView
+                        android:id="@+id/data_month"
+                        android:layout_width="75dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:text="Месяц"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/items_list"
+            android:layout_marginTop="175dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="520dp" />
 
         <Button
-            android:id="@+id/button_data_sort2"
-            android:layout_width="185dp"
+            android:id="@+id/button_toAdd"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#D5A10F"
-            android:textStyle="bold"
+            android:layout_gravity="right"
+            android:gravity="center"
+            android:layout_marginTop="670dp"
+            android:layout_marginLeft="285dp"
+            android:backgroundTint="@color/main"
+            android:onClick="toAddAct"
             android:paddingHorizontal="20dp"
-            style="?android:spinnerStyle"
-            android:layout_weight="1"
+            android:text="+" />
 
-            android:text="Дата 2"/>
-
-
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/items_list"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="520dp" />
-
-
-    <Button
-        android:id="@+id/button_toAdd"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="0dp"
-        android:backgroundTint="#201E28"
-        android:onClick="toAddAct"
-        android:paddingHorizontal="20dp"
-        android:text="+" />
-
-
-    <TextView
-        android:id="@+id/main_sum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:gravity="left"
-        android:layout_marginTop="-40dp"
-        android:layout_marginLeft="15dp"
-        android:fontFamily="@font/inter_bold"
-        android:text="Итого:"
-        android:textColor="#fdfdfd"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+    </RelativeLayout>
 
 
 
-
-</LinearLayout>
