@@ -29,7 +29,7 @@
             android:backgroundTint="@color/black"
             android:onClick="exitFromUser"
             android:text="Выйти"
-            android:textSize="9dp" />
+            android:textSize="8dp" />
 
         <RelativeLayout
             android:layout_width="380dp"
