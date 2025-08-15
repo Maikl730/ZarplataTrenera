@@ -117,7 +117,16 @@
     </LinearLayout>
 
 </RelativeLayout>
-
+    <ImageButton
+        android:id="@+id/photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@android:color/transparent"
+        android:scaleType="centerInside"
+        app:srcCompat="@color/cardview_shadow_end_color"
+        tools:srcCompat="@drawable/palm" />
 
 
 

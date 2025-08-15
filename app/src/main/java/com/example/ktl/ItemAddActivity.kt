@@ -31,9 +31,9 @@ import java.util.Calendar
 class ItemAddActivity : AppCompatActivity() {
 
 
-    private val PICK_IMAGE_REQUEST = 1
-    private lateinit var selectedImageUri: Uri
-    private val READ_MEDIA_IMAGE_PERMISSION_CODE = 101
+  //  private val PICK_IMAGE_REQUEST = 1
+   // private lateinit var selectedImageUri: Uri
+  //  private val READ_MEDIA_IMAGE_PERMISSION_CODE = 101
 
 
     var data:String = ""
@@ -41,7 +41,7 @@ class ItemAddActivity : AppCompatActivity() {
     var name:String = "-"
     var image64:String = ""
 
-
+/*
     fun openGallery(view:View){
 
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
@@ -68,7 +68,7 @@ class ItemAddActivity : AppCompatActivity() {
         }
     }
 
-  /*  fun toBase64FromUri():String{
+   fun toBase64FromUri():String{
         val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, selectedImageUri)
 
         val byteArrayOutputStream = ByteArrayOutputStream()
@@ -77,7 +77,7 @@ class ItemAddActivity : AppCompatActivity() {
         return Base64.encodeToString(byteArray, Base64.DEFAULT)
 
     }
-*/
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -95,7 +95,7 @@ class ItemAddActivity : AppCompatActivity() {
             }
         }
     }
-
+*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -106,7 +106,7 @@ class ItemAddActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+/*
         // Check if the permission is already granted
         if (ContextCompat.checkSelfPermission(
                 this,
@@ -128,6 +128,8 @@ class ItemAddActivity : AppCompatActivity() {
 
 
         selectedImageUri = "".toUri()
+        */
+
         val addButton: Button = findViewById(R.id.button_add)
         val dataButton: Button = findViewById(R.id.button_add_data)
         val timeButton: Button = findViewById(R.id.button_add_time)
@@ -181,7 +183,7 @@ class ItemAddActivity : AppCompatActivity() {
 
              //   val lastid =  intent.getIntExtra("lastid",0)
             val db = DbHelperTrain(this,null)
-                val dbImage = DbHelperImages(this,null)
+               // val dbImage = DbHelperImages(this,null)
             val sP = getSharedPreferences("UserId",MODE_PRIVATE)
 
             name = findViewById<EditText>(R.id.item_add_name).text.toString()
@@ -208,14 +210,14 @@ class ItemAddActivity : AppCompatActivity() {
 
             db.addItem(item)
 
-
+/*
                 if(selectedImageUri!=null){
                     if (selectedImageUri.toString()!="") {
                         dbImage.addImage(selectedImageUri.toString(), db.getLastId(), user)
                          println("LAST ID IS " + db.getLastId() + " !!!!!!!!!!!!!!!!!!")
                     }
                 }
-
+*/
 
             val intent = Intent(this,ItemsActivity::class.java)
             startActivity(intent)}

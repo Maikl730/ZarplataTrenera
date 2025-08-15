@@ -40,7 +40,7 @@ class ItemActivity : AppCompatActivity() {
         var isImage:Boolean = false
         val button_delete: Button = findViewById(R.id.button_delete_a)
         val button_red: Button = findViewById(R.id.button_red_a)
-        val imageButton: ImageButton = findViewById(R.id.photo_item)
+        //val imageButton: ImageButton = findViewById(R.id.photo_item)
 
 
 
@@ -71,7 +71,7 @@ class ItemActivity : AppCompatActivity() {
         col.text = intent.getIntExtra("itemCol",0).toString()
         price.text = intent.getIntExtra("itemPrice",0).toString()
 
-
+/*
         val db = DbHelperImages(this,null)
 
 
@@ -92,7 +92,7 @@ class ItemActivity : AppCompatActivity() {
             println("NO PICTURES!!!")
         }
 
-
+*/
 
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
@@ -126,11 +126,11 @@ class ItemActivity : AppCompatActivity() {
 
         button_delete.setOnClickListener {
             val db = DbHelperTrain(this,null)
-            val dbImage = DbHelperImages(this,null)
+           // val dbImage = DbHelperImages(this,null)
 
 
             db.deleteTrain(id)
-            dbImage.deleteImage(id,userId)
+           // dbImage.deleteImage(id,userId)
 
             val intent = Intent(this,ItemsActivity::class.java)
             startActivity(intent)
@@ -176,7 +176,7 @@ class ItemActivity : AppCompatActivity() {
                         )
 
                         val db = DbHelperTrain(this, null)
-                        val dbImages = DbHelperImages(this,null)
+                      //  val dbImages = DbHelperImages(this,null)
 
                         db.rewriteItem(item, id)
 
@@ -184,7 +184,7 @@ class ItemActivity : AppCompatActivity() {
                          //   changePhoto()
                             //dbImages.deleteImage(id,userId)
                         //}
-                        changePhoto()
+                      //  changePhoto()
 
 
                         val intent = Intent(this, ItemsActivity::class.java)
@@ -276,7 +276,7 @@ class ItemActivity : AppCompatActivity() {
         return year.toString()+"-"+month+"-"+day
     }
 
-
+/*
     fun openGallery(view:View){
 
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
@@ -301,7 +301,7 @@ class ItemActivity : AppCompatActivity() {
         }
     }
 
-
+*/
     fun changePhoto(){
         if(selectedImageUri.toString()!="") {
             val sP = getSharedPreferences("UserId", MODE_PRIVATE)

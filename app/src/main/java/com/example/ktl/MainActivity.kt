@@ -26,6 +26,13 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+
+
+        val sP1 = getSharedPreferences("UserId",MODE_PRIVATE)
+        val editor = sP1.edit()
+        editor.putInt("UserId",2)
+        editor.putBoolean("isAuth",true).commit()
+
         val sP = getSharedPreferences("UserId",MODE_PRIVATE)
         println("KKKKKKKKK"+sP.getBoolean("isAuth",false))
 

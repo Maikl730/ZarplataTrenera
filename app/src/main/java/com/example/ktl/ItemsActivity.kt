@@ -3,6 +3,7 @@ package com.example.ktl
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -29,6 +30,12 @@ class ItemsActivity : AppCompatActivity() {
             insets
         }
 
+
+        val sP1 = getSharedPreferences("UserId",MODE_PRIVATE)
+        val editor = sP1.edit()
+        editor.putInt("UserId",2)
+        editor.putBoolean("isAuth",true).commit()
+
         var data1:String
         var data2:String
         var buttonChange:Int = 0
@@ -50,10 +57,12 @@ class ItemsActivity : AppCompatActivity() {
         data1 = makeDataString(year,month-1,day)
         data2 = makeDataString(year,month,day)
 
-        
 
-        dataButtonSet1.setText(makeDataString(year,month-1,day))
-        dataButtonSet2.setText(makeDataString(year,month,day))
+
+        dataButtonSet1.setText("C " + day +" "+ monthFormat(month))
+        //dataButtonSet1.setText(makeDataString(year,month-1,day))
+        dataButtonSet2.setText("По " + day +" "+ monthFormat(month+1))
+        //dataButtonSet2.setText(makeDataString(year,month,day))
 
         val sP = getSharedPreferences("UserId",MODE_PRIVATE)
         val id = sP.getInt("UserId",0)
@@ -75,12 +84,16 @@ class ItemsActivity : AppCompatActivity() {
                 val newYear = c.get(Calendar.YEAR)
 
 
-                dataWeekClicker.setTextColor(R.color.main)
-                data2WeekClicker.setTextColor(R.color.black)
-                dataMonthClicker.setTextColor(R.color.black)
+                dataWeekClicker.setTextColor(getColor(R.color.main))
+                data2WeekClicker.setTextColor(getColor(R.color.black))
+                dataMonthClicker.setTextColor(getColor(R.color.black))
 
-                dataButtonSet1.setText("" + newDay + ". " + monthFormat(newMonth+1) + ". " + newYear)
+                dataButtonSet1.setText("C " + newDay +" "+ monthFormat(newMonth+1))
+                dataButtonSet2.setText("По " + day +" "+ monthFormat(month+1))
+
                 data1 = makeDataString(year,newMonth,newDay)
+                data2 = makeDataString(year,month,day)
+
                 items = db.getItem(data1,data2,id)
                 itemsList.adapter = ItemsAdapter(items,this)
                 sumShow.text = db.getSum(data1,data2,id).toString() + " руб."
@@ -98,12 +111,16 @@ class ItemsActivity : AppCompatActivity() {
 
 
 
-                dataWeekClicker.setTextColor(R.color.main)
-                data2WeekClicker.setTextColor(R.color.black)
-                dataMonthClicker.setTextColor(R.color.black)
+                dataWeekClicker.setTextColor(getColor(R.color.main))
+                data2WeekClicker.setTextColor(getColor(R.color.black))
+                dataMonthClicker.setTextColor(getColor(R.color.black))
 
-                dataButtonSet1.setText("" + newDay + ". " + monthFormat(newMonth+1) + ". " + newYear)
+                dataButtonSet1.setText("C " + newDay + " " + monthFormat(newMonth+1))
+                dataButtonSet2.setText("По " + day +" "+ monthFormat(month+1))
+
                 data1 = makeDataString(year,newMonth,newDay)
+                data2 = makeDataString(year,month,day)
+
                 items = db.getItem(data1,data2,id)
                 itemsList.adapter = ItemsAdapter(items,this)
                 sumShow.text = db.getSum(data1,data2,id).toString() + " руб."
@@ -120,12 +137,16 @@ class ItemsActivity : AppCompatActivity() {
                 c.add(Calendar.DAY_OF_YEAR,dayForMinus)
 
 
-                dataWeekClicker.setTextColor(R.color.main)
-                data2WeekClicker.setTextColor(R.color.black)
-                dataMonthClicker.setTextColor(R.color.black)
+                dataWeekClicker.setTextColor(getColor(R.color.main))
+                data2WeekClicker.setTextColor(getColor(R.color.black))
+                dataMonthClicker.setTextColor(getColor(R.color.black))
 
-                dataButtonSet1.setText("" + newDay + ". " + monthFormat(newMonth+1) + ". " + newYear)
+                dataButtonSet1.setText("C " + newDay + " " + monthFormat(newMonth+1))
+                dataButtonSet2.setText("По " + day +" "+ monthFormat(month+1))
+
                 data1 = makeDataString(year,newMonth,newDay)
+                data2 = makeDataString(year,month,day)
+
                 items = db.getItem(data1,data2,id)
                 itemsList.adapter = ItemsAdapter(items,this)
                 sumShow.text = db.getSum(data1,data2,id).toString() + " руб."
@@ -144,12 +165,17 @@ class ItemsActivity : AppCompatActivity() {
 
 
 
-                dataWeekClicker.setTextColor(R.color.black)
-                data2WeekClicker.setTextColor(R.color.black)
-                dataMonthClicker.setTextColor(R.color.main)
+                dataWeekClicker.setTextColor(getColor(R.color.black))
+                data2WeekClicker.setTextColor(getColor(R.color.black))
+                dataMonthClicker.setTextColor(getColor(R.color.main))
 
-                dataButtonSet1.setText("" + newDay + ". " + monthFormat(newMonth+1) + ". " + newYear)
+
+                dataButtonSet1.setText("C " + newDay + " " + monthFormat(newMonth+1))
+                dataButtonSet2.setText("По " + day +" "+ monthFormat(month+1))
+
                 data1 = makeDataString(year,newMonth,newDay)
+                data2 = makeDataString(year,month,day)
+
                 items = db.getItem(data1,data2,id)
                 itemsList.adapter = ItemsAdapter(items,this)
                 sumShow.text = db.getSum(data1,data2,id).toString() + " руб."
@@ -167,14 +193,16 @@ class ItemsActivity : AppCompatActivity() {
                 c.add(Calendar.DAY_OF_YEAR,1)
 
 
-                dataWeekClicker.setTextColor(R.color.black)
-                data2WeekClicker.setTextColor(R.color.black)
-                dataMonthClicker.setTextColor(R.color.main)
+                dataWeekClicker.setTextColor(getColor(R.color.black))
+                data2WeekClicker.setTextColor(getColor(R.color.black))
+                dataMonthClicker.setTextColor(getColor(R.color.main))
 
-                dataButtonSet1.setText("" + newDay + ". " + monthFormat(newMonth+1) + ". " + newYear)
-                dataButtonSet2.setText("" + newDay2 + ". " + monthFormat(newMonth+1) + ". " + newYear)
+                dataButtonSet1.setText("C " + newDay + " " + monthFormat(newMonth+1))
+                dataButtonSet2.setText("По " + newDay2 + " " + monthFormat(newMonth+1))
+
                 data1 = makeDataString(year,newMonth,newDay)
                 data1 = makeDataString(year,newMonth,newDay2)
+
                 items = db.getItem(data1,data2,id)
                 itemsList.adapter = ItemsAdapter(items,this)
                 sumShow.text = db.getSum(data1,data2,id).toString() + " руб."
@@ -195,12 +223,16 @@ class ItemsActivity : AppCompatActivity() {
                 c.add(Calendar.DAY_OF_YEAR,7)
 
 
-                dataWeekClicker.setTextColor(R.color.black)
-                data2WeekClicker.setTextColor(R.color.main)
-                dataMonthClicker.setTextColor(R.color.black)
+                dataWeekClicker.setTextColor(getColor(R.color.black))
+                data2WeekClicker.setTextColor(getColor(R.color.main))
+                dataMonthClicker.setTextColor(getColor(R.color.black))
 
-                dataButtonSet1.setText("" + newDay + ". " + monthFormat(newMonth+1) + ". " + newYear)
+                dataButtonSet1.setText("С " + newDay + " " + monthFormat(newMonth+1))
+                dataButtonSet2.setText("По " + day +" "+ monthFormat(month+1))
+
                 data1 = makeDataString(year,newMonth,newDay)
+                data2 = makeDataString(year,month,day)
+
                 items = db.getItem(data1,data2,id)
                 itemsList.adapter = ItemsAdapter(items,this)
                 sumShow.text = db.getSum(data1,data2,id).toString() + " руб."
@@ -217,12 +249,16 @@ class ItemsActivity : AppCompatActivity() {
                 c.add(Calendar.DAY_OF_YEAR,5+7)
 
 
-                dataWeekClicker.setTextColor(R.color.black)
-                data2WeekClicker.setTextColor(R.color.main)
-                dataMonthClicker.setTextColor(R.color.black)
+                dataWeekClicker.setTextColor(getColor(R.color.black))
+                data2WeekClicker.setTextColor(getColor(R.color.main))
+                dataMonthClicker.setTextColor(getColor(R.color.black))
 
-                dataButtonSet1.setText("" + newDay + ". " + monthFormat(newMonth+1) + ". " + newYear)
+                dataButtonSet1.setText("С " + newDay + " " + monthFormat(newMonth+1))
+                dataButtonSet2.setText("По " + day +" "+ monthFormat(month+1))
+
                 data1 = makeDataString(year,newMonth,newDay)
+                data2 = makeDataString(year,month,day)
+
                 items = db.getItem(data1,data2,id)
                 itemsList.adapter = ItemsAdapter(items,this)
                 sumShow.text = db.getSum(data1,data2,id).toString() + " руб."
@@ -239,12 +275,16 @@ class ItemsActivity : AppCompatActivity() {
                 c.add(Calendar.DAY_OF_YEAR,dayForMinus+7)
 
 
-                dataWeekClicker.setTextColor(R.color.black)
-                data2WeekClicker.setTextColor(R.color.main)
-                dataMonthClicker.setTextColor(R.color.black)
+                dataWeekClicker.setTextColor(getColor(R.color.black))
+                data2WeekClicker.setTextColor(getColor(R.color.main))
+                dataMonthClicker.setTextColor(getColor(R.color.black))
 
-                dataButtonSet1.setText("" + newDay + ". " + monthFormat(newMonth+1) + ". " + newYear)
+                dataButtonSet1.setText("С " + newDay + " " + monthFormat(newMonth+1))
+                dataButtonSet2.setText("По " + day +" "+ monthFormat(month+1))
+
                 data1 = makeDataString(year,newMonth,newDay)
+                data2 = makeDataString(year,month,day)
+
                 items = db.getItem(data1,data2,id)
                 itemsList.adapter = ItemsAdapter(items,this)
                 sumShow.text = db.getSum(data1,data2,id).toString() + " руб."
@@ -261,7 +301,7 @@ class ItemsActivity : AppCompatActivity() {
             val month1=monthOfYear
             if(buttonChange==1)
             {
-                dataButtonSet1.setText("" + dayOfMonth + ". " + monthFormat(month1+1) + ". " + year)
+                dataButtonSet1.setText("С " + dayOfMonth + " " + monthFormat(month1+1))
                 data1 = makeDataString(year,monthOfYear,dayOfMonth)
                 println(data1)
                 items = db.getItem(data1,data2,id)
@@ -269,7 +309,7 @@ class ItemsActivity : AppCompatActivity() {
                 sumShow.text = db.getSum(data1,data2,id).toString() + " руб."
                 itemsList.refreshDrawableState()
             }else {
-                dataButtonSet2.setText("" + dayOfMonth + ". " + monthFormat(month1+1) + ". " + year)
+                dataButtonSet2.setText("По " + dayOfMonth + " " + monthFormat(month1+1))
                 data2 = makeDataString(year,monthOfYear,dayOfMonth)
                 println(data2)
                 items = db.getItem(data1,data2,id)
@@ -320,40 +360,40 @@ class ItemsActivity : AppCompatActivity() {
 
     private fun monthFormat(month:Int):String{
         if(month==1){
-            return "Янв"
+            return "Января"
         }
         if(month==2){
-            return "Фев"
+            return "Февраля"
         }
         if(month==3){
-            return "Март"
+            return "Марта"
         }
         if(month==4){
-            return "Апр"
+            return "Апреля"
         }
         if(month==5){
-            return "Май"
+            return "Мая"
         }
         if(month==6){
-            return "Июнь"
+            return "Июня"
         }
         if(month==7){
-            return "Июль"
+            return "Июля"
         }
         if(month==8){
-            return "Авг"
+            return "Августа"
         }
         if(month==9){
-            return "Сент"
+            return "Сентебря"
         }
         if(month==10){
-            return "Окт"
+            return "Октября"
         }
         if(month==11){
-            return "Ноя"
+            return "Ноября"
         }
         else{
-            return "Дек"
+            return "Декабря"
         }
 
     }
