@@ -18,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.yandex.mobile.ads.banner.AdSize
+import com.yandex.mobile.ads.banner.BannerAdView
 import java.util.Calendar
 
 class ItemActivity : AppCompatActivity() {
@@ -35,6 +37,13 @@ class ItemActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+        val banner: BannerAdView = findViewById(R.id.banner2)
+        banner.setAdUnitId("demo-banner-yandex")
+        banner.setAdSize(AdSize.stickySize(350))
+        val adRequest = com.yandex.mobile.ads.common.AdRequest.Builder().build()
+        banner.loadAd(adRequest)
 
         selectedImageUri ="".toUri()
         var isImage:Boolean = false

@@ -24,6 +24,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
+import com.yandex.mobile.ads.banner.AdSize
+import com.yandex.mobile.ads.banner.BannerAdView
 import java.io.ByteArrayOutputStream
 import java.util.Calendar
 
@@ -39,7 +44,7 @@ class ItemAddActivity : AppCompatActivity() {
     var data:String = ""
     var time:String = ""
     var name:String = "-"
-    var image64:String = ""
+    //var image64:String = ""
 
 /*
     fun openGallery(view:View){
@@ -106,6 +111,14 @@ class ItemAddActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+        val banner:BannerAdView = findViewById(R.id.banner)
+        banner.setAdUnitId("demo-banner-yandex")
+        banner.setAdSize(AdSize.stickySize(350))
+        val adRequest = com.yandex.mobile.ads.common.AdRequest.Builder().build()
+        banner.loadAd(adRequest)
+
 /*
         // Check if the permission is already granted
         if (ContextCompat.checkSelfPermission(

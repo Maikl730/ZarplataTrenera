@@ -33,7 +33,7 @@ class ItemsActivity : AppCompatActivity() {
 
         val sP1 = getSharedPreferences("UserId",MODE_PRIVATE)
         val editor = sP1.edit()
-        editor.putInt("UserId",2)
+        editor.putInt("UserId",2).commit()
         editor.putBoolean("isAuth",true).commit()
 
         var data1:String
@@ -60,13 +60,12 @@ class ItemsActivity : AppCompatActivity() {
 
 
         dataButtonSet1.setText("C " + day +" "+ monthFormat(month))
-        //dataButtonSet1.setText(makeDataString(year,month-1,day))
+
         dataButtonSet2.setText("По " + day +" "+ monthFormat(month+1))
-        //dataButtonSet2.setText(makeDataString(year,month,day))
+
 
         val sP = getSharedPreferences("UserId",MODE_PRIVATE)
         val id = sP.getInt("UserId",0)
-        val isAuth =sP.getBoolean("isAuth",true)
 
         val db = DbHelperTrain(this,null)
 
@@ -326,13 +325,11 @@ class ItemsActivity : AppCompatActivity() {
             dpd.show()
             buttonChange=1
         }
-
         dataButtonSet2.setOnClickListener {
             dpd.show()
             buttonChange=2
         }
 
-//github string helloo testtttt !!!!
 
         itemsList.layoutManager = LinearLayoutManager(this)
         itemsList.adapter = ItemsAdapter(items,this)
@@ -341,22 +338,9 @@ class ItemsActivity : AppCompatActivity() {
 
     fun toAddAct(view: View){
         val intent = Intent(this,ItemAddActivity::class.java)
-           // intent.putExtra("lastid",items[items.lastIndex].id)
-           // println("!!!!!!!!!!!!!!!!!!!!!" + items[items.lastIndex].id + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-
-        startActivity(intent)
-
-    }
-
-    fun exitFromUser(view: View){
-
-        val sP = getSharedPreferences("UserId",MODE_PRIVATE)
-        val editor = sP.edit()
-        editor.putBoolean("isAuth",false).commit()
-
-        val intent = Intent(this,AuthActivity::class.java)
         startActivity(intent)
     }
+
 
     private fun monthFormat(month:Int):String{
         if(month==1){
