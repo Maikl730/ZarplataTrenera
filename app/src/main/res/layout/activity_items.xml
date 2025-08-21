@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="115dp"
             android:layout_marginTop="0dp"
-            android:background="@drawable/stars">
+            android:background="@color/main">
         </RelativeLayout>
 
 
@@ -27,7 +27,7 @@
         <RelativeLayout
             android:layout_width="380dp"
             android:layout_height="120dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:gravity="center_horizontal"
             android:layout_marginHorizontal="30dp"
             android:background="@drawable/round"
@@ -64,6 +64,7 @@
                         />
                 </LinearLayout>
 
+
                 <TextView
                     android:id="@+id/main_sum"
                     android:layout_width="300dp"
@@ -74,6 +75,7 @@
                     android:textColor="@color/black"
                     android:fontFamily="@font/inter_bold"
                     />
+
                 <LinearLayout
                     android:layout_width="300dp"
                     android:layout_height="40dp"
@@ -96,7 +98,7 @@
                         android:layout_gravity="center"
                         android:text="2 Недели"
                         android:textSize="16dp"
-                        android:layout_marginHorizontal="50dp"
+                        android:layout_marginHorizontal="45dp"
                         android:textColor="@color/main"
                         />
                     <TextView
@@ -118,10 +120,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/items_list"
-            android:layout_marginTop="175dp"
+            android:layout_marginTop="160dp"
             android:layout_marginHorizontal="20dp"
             android:layout_width="match_parent"
-            android:layout_height="520dp" />
+            android:layout_height="530dp" />
 
         <Button
             android:id="@+id/button_toAdd"
@@ -135,6 +137,7 @@
             android:onClick="toAddAct"
             android:paddingHorizontal="20dp"
             android:text="+" />
+
 
     </RelativeLayout>
 

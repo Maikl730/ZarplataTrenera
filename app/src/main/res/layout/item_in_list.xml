@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:background="@color/background"
     android:layout_height="wrap_content">
@@ -20,6 +21,7 @@
             android:backgroundTint="#D5A10F"
             android:textStyle="bold"
             android:textSize="17sp"
+            android:textColor="@color/black"
             android:paddingHorizontal="2sp"
             android:layout_gravity="center"
             android:gravity="center"
@@ -37,6 +39,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#D5A10F"
             android:textSize="17sp"
+            android:textColor="@color/black"
             android:text="10:00" />
 
 
@@ -46,6 +49,7 @@
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:text="Название"
+        android:textColor="@color/black"
         android:textSize="17sp"
          />
 
@@ -55,6 +59,7 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="20dp"
         android:textSize="17sp"
+        android:textColor="@color/black"
         android:text="Кол-во:8  1250 руб." />
 
 </LinearLayout>

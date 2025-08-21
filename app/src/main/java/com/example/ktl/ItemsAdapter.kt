@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +21,7 @@ class ItemsAdapter(var items: List<Item>,var context: Context): RecyclerView.Ada
         val line:View = view.findViewById(R.id.line)
         //val desc:TextView = view.findViewById(R.id.item_list_desc)
         val price:TextView = view.findViewById(R.id.item_list_text_count_price)
+        val backLay:LinearLayout = view.findViewById(R.id.main_layout)
 
 
 
@@ -63,7 +65,22 @@ class ItemsAdapter(var items: List<Item>,var context: Context): RecyclerView.Ada
        // holder.desc.text = items[position].desc
         holder.price.text = items[position].col.toString() + " чел.   " + items[position].price.toString() + "руб."
 
-        holder.time.setOnClickListener {
+       /*val intent = Intent(context,ItemActivity::class.java)
+
+            intent.putExtra("itemName",items[position].name)
+            intent.putExtra("itemData",items[position].data)
+            intent.putExtra("itemTime",items[position].time)
+            intent.putExtra("itemCol",items[position].col)
+            intent.putExtra("itemDesc",items[position].desc)
+            intent.putExtra("itemPrice",items[position].price)
+            intent.putExtra("itemId",items[position].id)
+
+            System.out.println("!!!!!! ${items[position].id})")
+                context.startActivity(intent)
+
+        }*/
+
+        holder.backLay.setOnClickListener {
 
             val intent = Intent(context,ItemActivity::class.java)
 
@@ -76,7 +93,7 @@ class ItemsAdapter(var items: List<Item>,var context: Context): RecyclerView.Ada
             intent.putExtra("itemId",items[position].id)
 
             System.out.println("!!!!!! ${items[position].id})")
-                context.startActivity(intent)
+            context.startActivity(intent)
 
         }
     }

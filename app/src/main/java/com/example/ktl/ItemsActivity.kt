@@ -15,11 +15,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.yandex.mobile.ads.interstitial.InterstitialAd
 import java.util.Calendar
 
 class ItemsActivity : AppCompatActivity() {
     lateinit var items: ArrayList<Item>
     @SuppressLint("ResourceAsColor")
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -100,13 +103,13 @@ class ItemsActivity : AppCompatActivity() {
 
 
             }
-            if(c.get(Calendar.DAY_OF_WEEK)==7){
+            if(c.get(Calendar.DAY_OF_WEEK)==1){
 
-                c.add(Calendar.DAY_OF_YEAR,-5)
+                c.add(Calendar.DAY_OF_YEAR,-6)
                 val newDay = c.get(Calendar.DAY_OF_MONTH)
                 val newMonth = c.get(Calendar.MONTH)
                 val newYear = c.get(Calendar.YEAR)
-                c.add(Calendar.DAY_OF_YEAR,5)
+                c.add(Calendar.DAY_OF_YEAR,6)
 
 
 
@@ -239,13 +242,13 @@ class ItemsActivity : AppCompatActivity() {
 
 
             }
-            if(c.get(Calendar.DAY_OF_WEEK)==7){
+            if(c.get(Calendar.DAY_OF_WEEK)==1){
 
-                c.add(Calendar.DAY_OF_YEAR,-(5+7))
+                c.add(Calendar.DAY_OF_YEAR,-(6+7))
                 val newDay = c.get(Calendar.DAY_OF_MONTH)
                 val newMonth = c.get(Calendar.MONTH)
                 val newYear = c.get(Calendar.YEAR)
-                c.add(Calendar.DAY_OF_YEAR,5+7)
+                c.add(Calendar.DAY_OF_YEAR,6+7)
 
 
                 dataWeekClicker.setTextColor(getColor(R.color.black))

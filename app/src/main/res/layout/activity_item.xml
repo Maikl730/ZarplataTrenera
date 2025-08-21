@@ -28,7 +28,8 @@
         android:paddingVertical="10dp"
         android:textStyle="bold"
         android:textSize="30sp"
-        android:text="TextView" />
+        android:textColor="@color/background"
+        android:hint="Название" />
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -39,6 +40,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#D5A10F"
         android:textStyle="bold"
+        android:textColor="@color/background"
         android:paddingHorizontal="20dp"
         style="?android:spinnerStyle"
 
@@ -50,6 +52,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#D5A10F"
         android:textStyle="bold"
+        android:textColor="@color/background"
         style="?android:spinnerStyle"
         android:paddingHorizontal="20dp"
         android:text="Время" />
@@ -68,6 +71,7 @@
         android:paddingVertical="10dp"
         android:textStyle="bold"
         android:textSize="17sp"
+        android:textColor="@color/background"
         android:text="Кол-во" />
 
         <EditText
@@ -79,7 +83,8 @@
             android:textStyle="bold"
             android:inputType="number"
             android:textSize="17sp"
-            android:text="8" />
+            android:textColor="@color/background"
+            android:hint="0" />
 
         <TextView
             android:layout_width="match_parent"
@@ -87,6 +92,7 @@
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"
             android:textStyle="bold"
+            android:textColor="@color/background"
             android:textSize="17sp"
             android:text="Итого:" />
 
@@ -99,7 +105,8 @@
             android:paddingVertical="10dp"
             android:textStyle="bold"
             android:textSize="17sp"
-            android:text="8" />
+            android:textColor="@color/background"
+            android:hint="0" />
 
 
     </LinearLayout>
@@ -111,32 +118,35 @@
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
         android:textSize="15sp"
-        android:text="Описание" />
+        android:textColor="@color/background"
+        android:hint="Описание" />
 
         </LinearLayout>
     </RelativeLayout>
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
     <Button
         android:id="@+id/button_red_a"
-        android:layout_width="200dp"
-        android:layout_gravity="center"
+        android:layout_width="190dp"
+        android:layout_gravity="left"
         android:layout_height="wrap_content"
         android:paddingHorizontal="20dp"
+        android:textColor="@color/background"
         android:backgroundTint="@color/main"
         android:text="Редактировать" />
 
         <Button
             android:id="@+id/button_delete_a"
-            android:layout_width="200dp"
-            android:layout_gravity="center"
+            android:layout_width="190dp"
+            android:layout_gravity="right"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
+            android:textColor="@color/background"
             android:backgroundTint="@color/main"
             android:text="Удалить" />
 

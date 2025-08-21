@@ -40,7 +40,7 @@ class ItemActivity : AppCompatActivity() {
 
 
         val banner: BannerAdView = findViewById(R.id.banner2)
-        banner.setAdUnitId("demo-banner-yandex")
+        banner.setAdUnitId("R-M-16765762-1")
         banner.setAdSize(AdSize.stickySize(350))
         val adRequest = com.yandex.mobile.ads.common.AdRequest.Builder().build()
         banner.loadAd(adRequest)

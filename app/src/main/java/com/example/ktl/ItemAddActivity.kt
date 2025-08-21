@@ -29,6 +29,8 @@ import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.yandex.mobile.ads.banner.AdSize
 import com.yandex.mobile.ads.banner.BannerAdView
+import com.yandex.mobile.ads.interstitial.InterstitialAd
+import com.yandex.mobile.ads.interstitial.InterstitialAdEventListener
 import java.io.ByteArrayOutputStream
 import java.util.Calendar
 
@@ -113,11 +115,18 @@ class ItemAddActivity : AppCompatActivity() {
         }
 
 
+
+
+
+
+
         val banner:BannerAdView = findViewById(R.id.banner)
-        banner.setAdUnitId("demo-banner-yandex")
+        banner.setAdUnitId("R-M-16765762-2")
         banner.setAdSize(AdSize.stickySize(350))
         val adRequest = com.yandex.mobile.ads.common.AdRequest.Builder().build()
         banner.loadAd(adRequest)
+
+
 
 /*
         // Check if the permission is already granted

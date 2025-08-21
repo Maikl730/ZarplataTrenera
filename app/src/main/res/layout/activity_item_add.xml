@@ -12,7 +12,8 @@
     android:layout_width="match_parent"
     android:layout_height="250dp"
     android:background="@drawable/round"
-    android:backgroundTint="@color/main">
+    android:backgroundTint="@color/main"
+    android:layout_marginTop="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +28,9 @@
         android:paddingVertical="10dp"
         android:textStyle="bold"
         android:textSize="30sp"
-        android:hint="Тренировка" />
+        android:textColor="@color/background"
+
+        android:hint="Название" />
     
     <LinearLayout
         android:layout_width="wrap_content"
@@ -39,6 +42,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#D5A10F"
             android:textStyle="bold"
+            android:textColor="@color/background"
             android:paddingHorizontal="20dp"
             style="?android:spinnerStyle"
 
@@ -50,6 +54,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#D5A10F"
             android:textStyle="bold"
+            android:textColor="@color/background"
             style="?android:spinnerStyle"
             android:paddingHorizontal="20dp"
             android:text="Время" />
@@ -68,6 +73,7 @@
             android:paddingVertical="10dp"
             android:textStyle="bold"
             android:textSize="17sp"
+            android:textColor="@color/background"
             android:text="Кол-во" />
 
         <EditText
@@ -88,6 +94,7 @@
             android:paddingVertical="10dp"
             android:textStyle="bold"
             android:textSize="17sp"
+            android:textColor="@color/background"
             android:text="Итого:" />
 
         <EditText
@@ -112,6 +119,7 @@
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
         android:textSize="15sp"
+        android:textColor="@color/background"
         android:hint="Описание" />
 
     </LinearLayout>
@@ -129,6 +137,7 @@
         android:layout_gravity="center"
         android:backgroundTint="@color/main"
         android:gravity="center"
+        android:textColor="@color/background"
         android:paddingHorizontal="20dp"
         android:text="Сохранить" />
 
