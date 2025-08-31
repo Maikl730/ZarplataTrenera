@@ -5,11 +5,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.RecyclerView
 
 class ItemsAdapter(var items: List<Item>,var context: Context): RecyclerView.Adapter<ItemsAdapter.MyViewHolder>() {
